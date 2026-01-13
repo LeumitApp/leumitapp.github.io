@@ -63,13 +63,15 @@
       // קישורי חנויות
       const IOS_STORE_URL     = "itms-apps://itunes.apple.com/app/id474214396";
       const ANDROID_STORE_URL = "https://play.google.com/store/apps/details?id=leumit.mobile";
+      const WEB_URL = "https://online.leumit.co.il
 
       // זיהוי פלטפורמה בסיסי
       const ua = navigator.userAgent || navigator.vendor || window.opera;
       const isAndroid = /Android/i.test(ua);
       const isIOS = /iPhone|iPad|iPod/i.test(ua);
+      const isBrowser = !isAndroid && !isIOS;
 
-      const storeUrl = isAndroid ? ANDROID_STORE_URL : IOS_STORE_URL;
+      const storeUrl = isBrowser ? WEB_URL : isAndroid ? ANDROID_STORE_URL : IOS_STORE_URL;
 
       // עדכון הכפתור הגלוי
       const openStoreBtn = document.getElementById("openStoreBtn");
